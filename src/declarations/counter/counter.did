@@ -1,0 +1,22 @@
+type Vivero = 
+ record {
+   ancho: float64;
+   descripcion: text;
+   fechaCreacion: text;
+   largo: float64;
+   nombre: text;
+   orticultor: principal;
+   tempAmbiente: float64;
+   temporadaActual: text;
+ };
+service : {
+  actualizarVivero: (text, text, float64, float64, float64, text, text,
+   text) -> (bool);
+  crearVivero: (text, float64, float64, float64, text, text, text) -> ();
+  eliminarVivero: (text) -> (bool);
+  obtenerVivero: (text) -> (opt Vivero) query;
+  obtenerViveros: () -> (vec record {
+                               text;
+                               Vivero;
+                             }) query;
+}
